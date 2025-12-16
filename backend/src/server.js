@@ -8,6 +8,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "🚀 Backend deployed successfully",
+    status: "Running",
+  });
+});
+
 app.use("/api", require("./routes/taskRoutes"));
 
 connectDB();
